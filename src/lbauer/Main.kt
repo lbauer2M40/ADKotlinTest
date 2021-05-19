@@ -1,13 +1,24 @@
 package lbauer
 
 fun main(args: Array<String>){
-    val zahl: Int = 10
-    var count: Int = 5
+    var a = 0
+    var b = 1
+    var max: Int
+    if (a < b){
+         max = b
+    } else {
+        max = a
+    }
 
-    println(zahl)
-    println(count)
+    println("a: $a")
+    println("b: $b")
+    println("max: $max")
 
-    count = 10
+    a = 3
+    println("a: $a")
 
-    println(count)
+    // if as an expression
+    max = if (a > b) a else b
+    println("max: $max")
+
 }
