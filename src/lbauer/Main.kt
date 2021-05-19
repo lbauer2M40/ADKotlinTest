@@ -1,24 +1,23 @@
 package lbauer
 
+import java.util.*
+
 fun main(args: Array<String>){
-    var a = 0
-    var b = 1
-    var max: Int
-    if (a < b){
-         max = b
-    } else {
-        max = a
+    val scan = Scanner(System.`in`)
+
+    when (scan.nextLine().toInt()) {
+        1 ->
+            println("x = 1")
+        2 ->
+            println("x = 2")
+        3,4 ->
+            println("x is either 3 or 4")
+        5 -> {
+            print("x = ")
+            println(5)
+        }
+        else ->
+            println("Hello!")
+
     }
-
-    println("a: $a")
-    println("b: $b")
-    println("max: $max")
-
-    a = 3
-    println("a: $a")
-
-    // if as an expression
-    max = if (a > b) a else b
-    println("max: $max")
-
 }
