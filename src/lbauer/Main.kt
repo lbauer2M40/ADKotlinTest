@@ -1,29 +1,28 @@
 package lbauer
 
-import java.util.*
+import java.awt.Color
+import kotlin.collections.ArrayList
 
 fun main(args: Array<String>){
-    val generateNumber: (Random) -> Int = { random ->
-        random.nextInt(10)+1
+
+    var wheels:ArrayList<Wheel> = arrayListOf<Wheel>()
+    for(i in 0..3){
+        wheels.add(Wheel(100))
     }
-    val random = Random()
-    val rand = generateNumber(random)
-    var bool = true;
-    var scan = Scanner(System.`in`)
 
-    do {
-        if(!bool)
-            println(answerString(0))
-        var inp = Integer.parseInt(scan.nextLine())
-        bool = inp == rand
-    }while(!bool)
+    var key = Key(10)
+    var car = Car(Color.RED,wheels, DoorLock(key))
 
-    scan.close()
-    println(answerString(1) + rand)
+    car.unlockDoor(key)
+    println("locked: " + car.isLocked())
+
+    car.lockDoor(Key(2))
+    println("locked: " + car.isLocked())
+
+    car.drive()
+    println("driving: " + car.isDriving())
+
+    car.stop()
+    println("driving: " + car.isDriving())
+
 }
-
-fun answerString(b: Int): String = if(b == 0){
-        "Again"
-    }else {
-        "Congrats, you found the random number: "
-    }
